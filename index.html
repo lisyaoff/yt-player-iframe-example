@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="player" style="position: fixed;"></div>
+        <script>
+            window.onYouTubeIframeAPIReady = function() {
+                window.ytPlayer = new YT.Player("player", {
+                    width: document.body.offsetWidth,
+                    height: document.body.offsetHeight,
+                    videoId: "",
+                    playerVars: {
+                        hl: "ru"
+                    },
+                    events: {
+                        onReady: function() {
+                            console.log("YT.Player ready!");
+
+                            window.dispatchEvent(new CustomEvent("yt-player-ready", {
+                                detail: player
+                            }));
+                        }
+                    }
+                });
+            }
+        </script>
+    </body>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</html>
