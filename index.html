@@ -11,7 +11,7 @@
         <div id="player" style="position: fixed;"></div>
         <script>
             window.onYouTubeIframeAPIReady = function() {
-                window.ytPlayer = new YT.Player("player", {
+                let player = new YT.Player("player", {
                     width: document.body.offsetWidth,
                     height: document.body.offsetHeight,
                     videoId: "",
